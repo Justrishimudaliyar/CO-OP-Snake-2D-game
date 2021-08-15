@@ -23,6 +23,11 @@ public static class Score
         score += 100;
     }
 
+    public static void SubtractScore()
+    {
+        score -= 100;
+    }
+
     public static int GetHighscore() {
         return PlayerPrefs.GetInt("highscore", 0);
     }

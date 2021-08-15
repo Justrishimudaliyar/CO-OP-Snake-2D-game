@@ -187,6 +187,7 @@ MonoBehaviour:
   snakeHeadSprite: {fileID: 21300000, guid: 37463aec83de6a14e8cfa0a8065f279f, type: 3}
   foodSprite: {fileID: 21300000, guid: 9d4271dcbbe66364ba0f97164afa3d9b, type: 3}
   snakeBodySprite: {fileID: 21300000, guid: 8d1d2b396be4262449b05b9a1e20634a, type: 3}
+  burnerSprite: {fileID: 0}
   soundAudioClipArray:
   - sound: 0
     audioClip: {fileID: 8300000, guid: 4d40ab1a04d39294382012f105a5f176, type: 3}
@@ -2890,6 +2891,7 @@ GameObject:
   - component: {fileID: 1392970628}
   - component: {fileID: 1392970630}
   - component: {fileID: 1392970629}
+  - component: {fileID: 1392970631}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3013,6 +3015,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392970627}
   m_CullTransparentMesh: 1
+--- !u!95 &1392970631
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392970627}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d7be90e713f16740b0ce32fb4aa13f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1394128602
 GameObject:
   m_ObjectHideFlags: 0

@@ -128,6 +128,14 @@ public class Snake : MonoBehaviour
                 SoundManager.PlaySound(SoundManager.Sound.SnakeEat);
             }
 
+            bool snakeAteBurner = levelGrid.TrySnakeEatBurner(gridPosition);
+            if (snakeAteBurner)
+            {
+                snakeBodySize--;
+                RemoveSnakeBody();
+                SoundManager.PlaySound(SoundManager.Sound.SnakeEat);
+            }
+
 
             if (snakeMovePositionList.Count >= snakeBodySize + 1)
             {
@@ -147,17 +155,23 @@ public class Snake : MonoBehaviour
                    SoundManager.PlaySound(SoundManager.Sound.SnakeDie);
                 }
             }
-   
             transform.position = new Vector3(gridPosition.x, gridPosition.y);
             transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(gridMoveDirectionVector) - 90);
-
         }
-
     }
 
     private void CreateSnakeBody()
     {
         snakeBodyPartList.Add(new SnakeBodyPart(snakeBodyPartList.Count));
+        Debug.Log(snakeBodyPartList.Count);
+    }
+    private void RemoveSnakeBody()
+    {
+        Destroy(snakeBodyPartList[snakeBodyPartList.Count - 1].snakeBodyGameObject);
+        snakeBodyPartList.RemoveAt(snakeBodyPartList.Count - 1);
+        //SnakeBodyPart burnedSnakeGameObject = snakeBodyPartList[snakeBodyPartList.Count - 1];
+        //Debug.Log(snakeBodyPartList.Count);
+        
     }
 
     private void UpdateSnakeBodyParts()
@@ -194,14 +208,17 @@ public class Snake : MonoBehaviour
         private SnakeMovePosition snakeMovePosition;
         private Vector2Int gridPosition;
         private Transform transform;
+        public GameObject snakeBodyGameObject;
         public SnakeBodyPart(int bodyIndex)
         {
-            GameObject snakeBodyGameObject = new GameObject("SnakeBody", typeof(SpriteRenderer));
+            snakeBodyGameObject = new GameObject("SnakeBody", typeof(SpriteRenderer));
             snakeBodyGameObject.GetComponent<SpriteRenderer>().sprite = GameAssets.instance.snakeBodySprite;
             snakeBodyGameObject.GetComponent<SpriteRenderer>().sortingOrder = -bodyIndex;
             transform = snakeBodyGameObject.transform;
         }
 
+        
+       
         public void SetSnakeMovePosition(SnakeMovePosition snakeMovePosition)
         {
             this.snakeMovePosition = snakeMovePosition;
@@ -286,6 +303,7 @@ public class Snake : MonoBehaviour
         private SnakeMovePosition previousSnakeMovePosition;
         private Vector2Int gridPosition;
         private Direction direction;
+        
         public SnakeMovePosition(SnakeMovePosition previousSnakeMovePosition, Vector2Int gridPosition, Direction direction)
         {
             this.previousSnakeMovePosition = previousSnakeMovePosition;
