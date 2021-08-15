@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelGrid : MonoBehaviour
+public class LevelGrid 
 {
     private Vector2Int foodGridPosition;
     private Vector2Int burnerGridPosition;
@@ -23,6 +23,8 @@ public class LevelGrid : MonoBehaviour
         SpawnFood();
         SpawnBurner();
     }
+
+    
     private void SpawnFood()
     {
         do
@@ -99,4 +101,5 @@ public class LevelGrid : MonoBehaviour
         }
         return gridPosition;
     }
+
 }

@@ -133,7 +133,7 @@ public class Snake : MonoBehaviour
             {
                 snakeBodySize--;
                 RemoveSnakeBody();
-                SoundManager.PlaySound(SoundManager.Sound.SnakeEat);
+                SoundManager.PlaySound(SoundManager.Sound.SnakeDamage);
             }
 
 
@@ -169,9 +169,7 @@ public class Snake : MonoBehaviour
     {
         Destroy(snakeBodyPartList[snakeBodyPartList.Count - 1].snakeBodyGameObject);
         snakeBodyPartList.RemoveAt(snakeBodyPartList.Count - 1);
-        //SnakeBodyPart burnedSnakeGameObject = snakeBodyPartList[snakeBodyPartList.Count - 1];
-        //Debug.Log(snakeBodyPartList.Count);
-        
+      
     }
 
     private void UpdateSnakeBodyParts()
