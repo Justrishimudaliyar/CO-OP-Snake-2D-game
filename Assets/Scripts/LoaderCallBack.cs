@@ -10,13 +10,14 @@ public class LoaderCallBack : MonoBehaviour
         if(firstUpdate)
         {
             firstUpdate = false;
-            StartCoroutine(TimeDelay());
+            //StartCoroutine(TimeDelay());
+            Loader.LoaderCallback();
         }
     }
 
-    IEnumerator TimeDelay()
-    {
-        yield return new WaitForSeconds(2.0f);
-        Loader.LoaderCallback();
-    }
+    //IEnumerator TimeDelay()
+    //{
+    //    yield return new WaitForSeconds(2.0f);
+    //    Loader.LoaderCallback();
+    //}
 }
