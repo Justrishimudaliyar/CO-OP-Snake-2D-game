@@ -23,6 +23,7 @@ public static class Loader
         };
 
         SceneManager.LoadScene(Scene.Loading.ToString()); 
+        
     }   
 
     public static void LoaderCallback()

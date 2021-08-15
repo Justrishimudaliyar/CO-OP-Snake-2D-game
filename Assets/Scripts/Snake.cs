@@ -96,6 +96,8 @@ public class Snake : MonoBehaviour
         {
             gridMoveTimer -= gridMoveTimerMax;
 
+
+            //SoundManager.PlaySound(SoundManager.Sound.SnakeMove);
             SnakeMovePosition previousSnakeMovePosition = null;
             if(snakeMovePositionList.Count > 0)
             {
@@ -123,6 +125,7 @@ public class Snake : MonoBehaviour
             {
                 snakeBodySize++;
                 CreateSnakeBody();
+                //SoundManager.PlaySound(SoundManager.Sound.SnakeEat);
             }
 
 
@@ -141,6 +144,7 @@ public class Snake : MonoBehaviour
                     //CMDebug.TextPopup("Dead!", transform.position);
                     state = State.Dead;
                     GameHandler.SnakeDied();
+                   // SoundManager.PlaySound(SoundManager.Sound.SnakeDie);
                 }
             }
    
@@ -212,9 +216,14 @@ public class Snake : MonoBehaviour
                         default:
                             angle = 0; break;
                         case Direction.Left:
-                            angle = 0 + 45; break;
+                            angle = 0 + 45;
+                            transform.position += new Vector3(.2f, .2f); 
+                            break;
+
                         case Direction.Right:
-                            angle = 0 - 45; break;
+                            angle = 0 - 45;
+                            transform.position += new Vector3(-.2f, .2f);
+                            break;
                     }
                     break;
                 case Direction.Down:
@@ -223,9 +232,13 @@ public class Snake : MonoBehaviour
                         default:
                             angle = 180; break;
                         case Direction.Left:
-                            angle = 180 + 45; break;
+                            angle = 180 + 45;
+                            transform.position += new Vector3(.2f, -.2f);
+                            break;
                         case Direction.Right:
-                            angle = 180 - 45; break;
+                            angle = 180 - 45;
+                            transform.position += new Vector3(-.2f, -.2f);
+                            break;
                     }
                     break;
                 case Direction.Right:
@@ -234,9 +247,13 @@ public class Snake : MonoBehaviour
                         default:
                             angle = 90;  break;
                         case Direction.Down: 
-                            angle = 45; break;
+                            angle = 45;
+                            transform.position += new Vector3(.2f, .2f);
+                            break;
                         case Direction.Up:
-                            angle = -45; break;
+                            angle = -45;
+                            transform.position += new Vector3(.2f, -.2f);
+                            break;
                     }
                     break;
                 case Direction.Left:
@@ -245,9 +262,13 @@ public class Snake : MonoBehaviour
                         default:
                             angle = -90; break;
                         case Direction.Down:
-                            angle = -45; break;
+                            angle = -45;
+                            transform.position += new Vector3(-.2f, .2f);
+                            break;
                         case Direction.Up:
-                            angle = 45; break;
+                            angle = 45;
+                            transform.position += new Vector3(-.2f, -.2f);
+                            break;
                     }
                     break;
             }

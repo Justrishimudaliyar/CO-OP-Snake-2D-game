@@ -187,6 +187,17 @@ MonoBehaviour:
   snakeHeadSprite: {fileID: 21300000, guid: 37463aec83de6a14e8cfa0a8065f279f, type: 3}
   foodSprite: {fileID: 21300000, guid: 9d4271dcbbe66364ba0f97164afa3d9b, type: 3}
   snakeBodySprite: {fileID: 21300000, guid: 8d1d2b396be4262449b05b9a1e20634a, type: 3}
+  soundAudioClipArray:
+  - sound: 0
+    audioClip: {fileID: 8300000, guid: 4d40ab1a04d39294382012f105a5f176, type: 3}
+  - sound: 1
+    audioClip: {fileID: 8300000, guid: 2b26e532e1357594f9835a5a8b7fb3f9, type: 3}
+  - sound: 2
+    audioClip: {fileID: 8300000, guid: 3084476810b14e54997c27af92a17bef, type: 3}
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: 51b76524965f79e448d85349cd66c337, type: 3}
+  - sound: 4
+    audioClip: {fileID: 8300000, guid: 611728f9d20a2794ba00aa0fe076393e, type: 3}
 --- !u!4 &108197395
 Transform:
   m_ObjectHideFlags: 0
@@ -568,6 +579,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207300860}
   m_CullTransparentMesh: 1
+--- !u!1 &216000600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 216000602}
+  - component: {fileID: 216000601}
+  m_Layer: 0
+  m_Name: LoaderCallBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &216000601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216000600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bca6e0d80340844f89ac604dbb6c308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &216000602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216000600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 737.1606, y: 317.69803, z: 20860.297}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &224329929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1877,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 938802637}
-  - component: {fileID: 938802638}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -1849,19 +1902,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &938802638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938802636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ff7d590b8e1114a82e5a0daf955c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snake: {fileID: 0}
 --- !u!1 &1008316657
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ using CodeMonkey;
 public class GameHandler : MonoBehaviour
 {
     private static GameHandler instance;
-    private static int score;
+    
     [SerializeField]
     private Snake snake;
     private LevelGrid levelGrid;
@@ -16,7 +16,10 @@ public class GameHandler : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        InitializeStatic();
+        Score.InitializeStatic();
+        Time.timeScale = 1f;
+
+        Score.TrySetNewHighscore(200);
     }
     private void Start()
     {
@@ -29,33 +32,23 @@ public class GameHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameHandler.PauseGame();
-
+            if(IsGamePaused())
+            {
+                GameHandler.ResumeGame();
+            }else
+            {
+                GameHandler.PauseGame();
+            }
         }
-                
-
-     
-
-
     }
 
-    private static void InitializeStatic()
-    {
-        score = 0;
-    }
-    public static int GetScore()
-    {
-        return score;
-    }
-
-    public static void AddScore()
-    {
-        score += 100;    
-    }
+  
     
     public static void SnakeDied()
     {
-        GameOverWindow.ShowStatic();
+        bool isNewHighScore = Score.TrySetNewHighscore();
+        GameOverWindow.ShowStatic(isNewHighScore);
+        ScoreWindow.HideStatic();
     }
 
     public static void ResumeGame()
@@ -68,5 +61,10 @@ public class GameHandler : MonoBehaviour
     {
         PauseWindow.ShowStatic();
         Time.timeScale = 0f;
+    }
+
+    public static bool IsGamePaused()
+    {
+        return Time.timeScale == 0f;
     }
 }

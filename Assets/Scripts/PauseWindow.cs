@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
+using UnityEngine.SceneManagement;
 
 public class PauseWindow : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class PauseWindow : MonoBehaviour
     {
         instance = this;
         transform.Find("resumeButton").GetComponent<Button_UI>().ClickFunc = () => GameHandler.ResumeGame();
-        transform.Find("mainMenuButton").GetComponent<Button_UI>().ClickFunc = () => Loader.Load(Loader.Scene.MainMenu);
+        transform.Find("resumeButton").GetComponent<Button_UI>().AddButtonSounds();
+        transform.Find("mainMenuButton").GetComponent<Button_UI>().ClickFunc = () => SceneManager.LoadScene("MainMenu");
+        transform.Find("mainMenuButton").GetComponent<Button_UI>().AddButtonSounds();
 
         Hide();
     }
@@ -24,7 +27,10 @@ public class PauseWindow : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public static void ShowStatic() => instance.Show();
+    public static void ShowStatic()
+    {
+        instance.Show();
+    }
 
     public static void HideStatic()
     {
