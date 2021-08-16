@@ -8,9 +8,10 @@ using CodeMonkey;
 public class GameHandler : MonoBehaviour
 {
     private static GameHandler instance;
-    [SerializeField]
-    private Snake snake;
-    private LevelGrid levelGrid;
+    public static GameHandler Instance { get { return instance; } }
+    [SerializeField] private Snake snake;
+    [SerializeField] private FoodSpawner foodSpawn;
+    //private LevelGrid levelGrid;
     private void Awake()
     {
         instance = this;
@@ -18,13 +19,6 @@ public class GameHandler : MonoBehaviour
         Time.timeScale = 1f;
         Score.TrySetNewHighscore(200);
     }
-    private void Start()
-    {
-        levelGrid = new LevelGrid(20, 20);
-        snake.Setup(levelGrid);
-        levelGrid.Setup(snake);
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -5,10 +5,8 @@ using System;
 public class GameAssets : MonoBehaviour
 {
     public static GameAssets instance;
-    private void Awake()
-    {
-        instance = this;
-    }
+    public static GameAssets Instance { get { return instance; } }
+    
     public Sprite snakeHeadSprite;
     public Sprite foodSprite;
     public Sprite snakeBodySprite;
@@ -19,5 +17,10 @@ public class GameAssets : MonoBehaviour
     {
         public SoundManager.Sound sound;
         public AudioClip audioClip;
+    }
+
+    private void Awake()
+    {
+        instance = this;
     }
 }
