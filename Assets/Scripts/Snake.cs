@@ -25,17 +25,16 @@ public class Snake : MonoBehaviour
     private Direction gridMoveDirection;
 
     private float gridMoveTimer;
-    private float gridMoveTimerMax;
+    public float gridMoveTimerMax;
 
     private int snakeBodySize;
     private int width;
     private int height;
 
-    //private LevelGrid levelGrid;
-
-    public bool deadFood = false;
-
+    [HideInInspector] public bool deadFood = false;
+    [HideInInspector] public bool shield = false;
     [SerializeField] private FoodSpawner foodSpawner;
+    [SerializeField] private PowerUPHandler powerUp;
 
     private List<SnakeMovePosition> snakeMovePositionList;
     private List<SnakeBodyPart> snakeBodyPartList;
@@ -52,8 +51,8 @@ public class Snake : MonoBehaviour
         gridMoveDirection = Direction.Right;
 
         snakeMovePositionList = new List<SnakeMovePosition>();
-        snakeBodySize = 0;
         snakeBodyPartList = new List<SnakeBodyPart>();
+        snakeBodySize = 0;
         
         state = State.Alive;
         
@@ -151,6 +150,8 @@ public class Snake : MonoBehaviour
                     SoundManager.PlaySound(SoundManager.Sound.SnakeEat);
                 }
             }
+
+            bool snakePowerUp = powerUp.SnakePowerUp(gridPosition);
 
             if (snakeMovePositionList.Count >= snakeBodySize + 1)
             {

@@ -11,6 +11,9 @@ public class GameAssets : MonoBehaviour
     public Sprite foodSprite;
     public Sprite snakeBodySprite;
     public Sprite burnerSprite;
+    public Sprite Shield;
+    public Sprite ScoreBoost;
+    public Sprite SpeedUp;
     public SoundAudioClip[] soundAudioClipArray;
     [Serializable]
     public class SoundAudioClip
