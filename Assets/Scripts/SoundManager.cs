@@ -12,7 +12,8 @@ public static class SoundManager
         SnakeEat,
         ButtonClick,
         ButtonOver,
-        SnakeDamage
+        SnakeDamage,
+        PowerUpPickUp,
     }
 
     public static void PlaySound(Sound sound)

@@ -11,6 +11,7 @@ public static class Loader
         GameScene,
         Loading,
         MainMenu,
+        CoOpScene,
     }
 
     private static Action loaderCallBackAction;

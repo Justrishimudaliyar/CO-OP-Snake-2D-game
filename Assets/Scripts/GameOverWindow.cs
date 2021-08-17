@@ -24,8 +24,8 @@ public class GameOverWindow : MonoBehaviour
     {
         gameObject.SetActive(true);
         transform.Find("newHighScore").gameObject.SetActive(isNewHighScore);
-        transform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = Score.GetScore().ToString();
-        transform.Find("highScoreText").GetComponent<TextMeshProUGUI>().text = "HIGHSCORE" + Score.GetHighscore();
+        transform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = "CURRENT SCORE: " + Score.GetScore().ToString();
+        transform.Find("highScoreText").GetComponent<TextMeshProUGUI>().text = "HIGHSCORE: " + Score.GetHighscore();
     }
     private void Hide()
     {
